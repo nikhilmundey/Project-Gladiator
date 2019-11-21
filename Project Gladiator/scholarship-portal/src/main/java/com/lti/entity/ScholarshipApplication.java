@@ -2,14 +2,18 @@ package com.lti.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+
+import org.hibernate.annotations.Generated;
 
 @Entity
 public class ScholarshipApplication {
 	
 	@Id
+	@GeneratedValue
 	@Column(name="APPLICATION_ID")
 	private int applicationId;
 	

@@ -8,6 +8,9 @@
 	http://www.springframework.org/schema/context/spring-context.xsd
 	http://www.springframework.org/schema/tx
 	http://www.springframework.org/schema/tx/spring-tx.xsd">
+	
+	<context:component-scan
+		base-package="com.lti.controller, com.lti.service, com.lti.repository" />
 
 	<!-- Enabling support for File Upload in Spring MVC -->
 	<bean id="multipartResolver"
@@ -62,7 +65,8 @@
 		</property>
 		<property name="jpaProperties">
 			<props>
-				<prop key="hibernate.show_sql">true</prop> <!-- Show_sql will display the query on the console -->
+				<prop key="hibernate.show_sql">true</prop>
+				 <prop key="hibernate.hbm2.ddl">update</prop> <!-- Show_sql will display the query on the console -->
 			</props>
 		</property>
 	</bean>
@@ -70,7 +74,5 @@
 	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
 		<property name="entityManagerFactory" ref="myEmf" />
 	</bean>
-	<tx:annotation-driven />
-	<context:component-scan
-		base-package="com.lti.controller, com.lti.service, com.lti.repository" />   <!-- Location of dao classes -->
+	<tx:annotation-driven />	
 </beans>
